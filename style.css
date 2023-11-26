@@ -1,0 +1,327 @@
+*,
+*::after,
+*::before {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   height: 100vh;
+   width: 100%;
+   font-family: Arial;
+}
+
+.wrapper {
+   z-index: 50;
+   min-width: 100%;
+   min-height: 100%;
+   overflow: hidden;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container {
+   min-height: 100vh;
+   /* background-color: rgb(218, 222, 155); */
+
+
+}
+
+
+
+
+
+.todo {
+   padding: 50px;
+
+}
+
+
+
+.todo__add {
+
+   padding: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+
+.todo__add * {
+   outline: none;
+
+   z-index: 100;
+   position: relative;
+
+}
+
+.todo__input {
+   padding: 10px;
+   font-size: 20px;
+   width: 100%;
+   height: 40px;
+   /* background-color: rgb(230, 233, 169); */
+   border: none;
+   position: relative;
+   display: block;
+   transition: all 0.7s ease;
+
+}
+
+
+
+
+.bg-click {
+   position: absolute;
+   z-index: 1;
+   min-height: 100vh;
+   min-width: 100vw;
+
+}
+
+
+
+.todo__input:focus {
+   transition: all 0.7s ease;
+   box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.484);
+   transform: scale(1.05, 1.05);
+
+}
+
+.input-box {
+   width: 70%;
+   height: 100%;
+   position: relative;
+   transition: all 0.7s ease;
+
+}
+
+.input-box::after {
+   content: '';
+   height: 1px;
+   width: 0.5%;
+   bottom: 0;
+   box-shadow: 0 0 2px rgb(0, 0, 0);
+   background-color: #000;
+   position: absolute;
+   z-index: 100;
+   transition: all 0.7s ease;
+
+}
+
+.input-box.active::after {
+   width: 100%;
+   box-shadow: 0 0 2px #000;
+   transform: scale(1.05, 1.05);
+   transition: all 0.7s ease;
+
+   /* transition: width 0.2s ease; */
+
+}
+
+
+
+
+.todo__add-new {
+
+   width: 50px;
+   height: 40px;
+   margin: 0 20px;
+   position: relative;
+   cursor: pointer;
+   transform: rotate(0deg);
+   transition: all 0.4s ease;
+   border: #000 solid 2px;
+   background-color: #fff;
+
+}
+
+.todo__add-new:focus {
+   box-shadow: 0 0 5px #000;
+   transform: scale(1.05, 1.05);
+}
+
+.todo__add-new:hover {
+   box-shadow: 0 0 5px #000;
+   transform: scale(1.05, 1.05);
+}
+
+.todo__add-new:active {
+   box-shadow: 0 0 0 #000;
+   transform: scale(0.8, 0.8);
+}
+
+
+
+.todo__add-new::after {
+   position: absolute;
+   content: '';
+   width: 40%;
+   transform: rotate(0deg) translate(-50%, -50%);
+   top: 50%;
+   left: 50%;
+   height: 2px;
+   background-color: #000;
+}
+
+.todo__add-new::before {
+   position: absolute;
+   content: '';
+   height: 40%;
+   top: 50%;
+   left: 50%;
+   transform: rotate(0deg) translate(-50%, -50%);
+
+   width: 2px;
+   background-color: #000;
+}
+
+
+
+
+.todo-remove {
+   width: 35px;
+   height: 35px;
+   background: url(done.svg) center/cover no-repeat scroll;
+   cursor: pointer;
+   opacity: 0;
+   transition: all 0.2s linear;
+}
+
+
+
+.todo-remove.return {
+   cursor: pointer;
+   background: url(return.png) center/cover no-repeat scroll;
+}
+
+
+
+.todo-remove-del {
+   width: 35px;
+   opacity: 0;
+   transition: all 0.2s linear;
+   height: 35px;
+   cursor: pointer;
+   background: url(x.png) center/cover no-repeat scroll;
+
+}
+
+.marks {
+   display: flex;
+   align-items: center;
+   gap: 20px;
+
+}
+
+.marks:first-child {
+   margin: 0 0 0 40px;
+}
+
+.todo-task {
+   transition: all 0.2s linear;
+   font-size: 25px;
+   height: 100%;
+   overflow-x: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   color: #000;
+   text-decoration: none;
+   padding: 10px 10px 10px 20px;
+
+}
+
+
+
+.todo-task:hover .todo-remove {
+   opacity: 1;
+
+}
+
+.todo-task:hover .todo-remove-del {
+   opacity: 1;
+}
+
+.task-done {
+   text-decoration: line-through;
+   opacity: 0.5;
+   transition: all 0.7s linear;
+   z-index: 100;
+}
+
+.todo__tasks {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   background-color: #fff;
+   transition: all 0.2s linear;
+}
+
+
+
+.todo__tasks * {
+   z-index: 100;
+   position: relative;
+}
+
+.todo-list {
+   padding: 0 0 0 25px;
+
+   width: 100%;
+   transition: all 0.2s linear;
+   height: 100%;
+
+
+}
+
+.todo-list li {
+   transition: all 0.4s linear;
+
+}
+
+.todo-list li:hover {
+   transition: all 0.4s linear;
+
+   box-shadow: 0 0 5px #000;
+
+}
+
+.done {
+   padding: 0 50px;
+   text-align: center;
+   letter-spacing: 0.1em;
+   margin: 50px 0 0 0;
+   border-top: #000 2px solid;
+}
+
+.done * {
+   z-index: 100;
+   position: relative;
+}
+
+.done h2 {
+   margin: 10px 0;
+   text-transform: uppercase;
+
+}
+
+.done-list {
+   padding: 0 0 0 35px;
+   background-color: #fff;
+}
+
+.task-done {
+   transition: all 0.4s linear;
+
+}
+
+.task-done:hover {
+   transition: all 0.4s linear;
+
+   box-shadow: 0 0 5px #000;
+}
